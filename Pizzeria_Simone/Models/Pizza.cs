@@ -8,9 +8,13 @@ namespace Pizzeria_Simone.Models
         [Required(ErrorMessage = "Il campo titolo è obbligatorio")]
         [StringLength(10, ErrorMessage ="Il titolo non può avere più di 10 caratteri")]
         public string Title { get; set; }
+        [Required(ErrorMessage = "Il campo descrizione è obbligatorio")]
         public string Description { get; set; }
+
+        [Required(ErrorMessage = "L'Url è obbligatorio")]
+        [Url(ErrorMessage = "Mi dispiace, l'url non è valido")]
         public string Image { get; set; }
-        public float Price { get; set; }
+        public double Price { get; set; }
 
 
         public Pizza()
@@ -18,7 +22,7 @@ namespace Pizzeria_Simone.Models
 
         }
 
-        public Pizza(int id, string title, string Description, string image, float Price)
+        public Pizza(int id, string Title, string Description, string Image, double Price)
         {
             this.Id = Id;
             this.Title = Title;
@@ -27,5 +31,7 @@ namespace Pizzeria_Simone.Models
             this.Price = Price;
 
         }
+
+      
     }
 }
